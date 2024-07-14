@@ -1,0 +1,33 @@
+{
+  "name": "chess.com.js",
+  "version": "1.0.0",
+  "description": "A library for interacting with the Chess.com API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node test.ts"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "typescript": "^4.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TovaIsME/chess.com.js.git"
+  },
+  "keywords": [
+    "chess.com",
+    "api",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TovaIsME/chess.com.js/issues"
+  },
+  "homepage": "https://github.com/TovaIsME/chess.com.js#readme"
+}
