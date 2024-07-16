@@ -24,12 +24,15 @@ const clubId = 'example-club-id';
 const club = new Clubs(clubId);
 
 try {
-  const clubDetails = await club.fetchClubDetails();
-  const clubMembers = await club.fetchClubMembers();
-  const clubMatches = await club.fetchClubMatches();
-  console.log('Club Details:', clubDetails);
-  console.log('Club Members:', clubMembers);
-  console.log('Club Matches:', clubMatches);
+  club.fetchClubDetails().then((clubDetails) => {
+    console.log('Club Details:', clubDetails);
+  });
+  club.fetchClubMembers().then((clubMembers) => {
+    console.log('Club Members:', clubMembers);
+  });
+  club.fetchClubMatches().then((clubMatches) => {
+    console.log('Club Matches:', clubMatches);
+  });
 } catch (error) {
   console.error('Error fetching club data:', error.message);
 }
@@ -41,12 +44,15 @@ const countryIso = 'US';
 const country = new CountryDetails(countryIso);
 
 try {
-  const countryInfo = await country.fetchDetails();
-  const countryPlayers = await country.getPlayers();
-  const countryClubs = await country.getClubs();
-  console.log('Country Info:', countryInfo);
-  console.log('Country Players:', countryPlayers);
-  console.log('Country Clubs:', countryClubs);
+  country.fetchDetails().then((countryDetails) => {
+    console.log('Country Details:', countryDetails);
+  });
+  country.getPlayers().then((countryPlayers) => {
+    console.log('Country Players:', countryPlayers);
+  });
+  await country.getClubs().then((countryClubs) => {
+    console.log('Country Clubs:', countryClubs);
+  });
 } catch (error) {
   console.error('Error fetching country data:', error.message);
 }
@@ -58,18 +64,23 @@ const gameId = 'example-game-id';
 const game = new Game(gameId);
 
 try {
-  const gameDetails = await game.fetchGameDetails();
-  const boardDetails = await game.fetchBoardDetails(1);
-  const liveGameDetails = await game.fetchLiveGameDetails();
-  const liveBoardDetails = await game.fetchLiveBoardDetails(1);
-  console.log('Game Details:', gameDetails);
-  console.log('Board Details:', boardDetails);
-  console.log('Live Game Details:', liveGameDetails);
-  console.log('Live Board Details:', liveBoardDetails);
-} catch (error) {
+  game.fetchGameDetails().then((gameDetails) => {
+    console.log('Game Details:', gameDetails);
+  });
+  game.fetchBoardDetails(1).then((boardDetails) => {
+    console.log('Board Details:', boardDetails);
+  });
+  game.fetchLiveGameDetails().then((liveGameDetails) => {
+    console.log('Live Game Details:', liveGameDetails);
+  });
+  game.fetchLiveBoardDetails(1).then((liveBoardDetails) => {
+    console.log('Live Board Details:', liveBoardDetails);
+  });
+  } catch (error) {
   console.error('Error fetching game data:', error.message);
 }
 ```
+Working on improving this package.
 
 ## Additional Classes
 The package also includes classes for fetching Leaderboards, Matches, Puzzles, Streamers, Titles, Tournaments, and User data. Each class provides methods to fetch specific data from the Chess.com API.
